@@ -309,5 +309,38 @@ Trait type: Top lid
   occurrence: '14 in 20 editions (70.00 %)'
 }
 ```
+### Generating art from metadata
+
+To regenerate art from the metadata produced during a build:
+
+```sh
+npm run regen
+```
+
+This feature can be useful for creating a new collection with modified layers or reproducing the collection at different resolutions. All your images will be outputted in the `/build/regen/images` directory. 
+
+Set the following in the `src/config.js` file to control the outputs of regeneration.
+
+```js
+// layers to leave out of the regenerated art
+const dropLayers = ['Goo'];
+// pixelate the regenerated art
+// uses pixelFormat
+const pixelate = false;
+// overlays the id of the art for debugging
+const showText = true;
+// settings to crop a section of the regenerated art
+const crop = {
+  doCrop: false,
+  sx: 500,
+  sy: 100,
+  sw: 1000,
+  sh: 1000,
+  dx: 0,
+  dy: 0,
+  dw: 512,
+  dh: 512,
+};
+```
 
 Hope you create some awesome artworks with this code 👄

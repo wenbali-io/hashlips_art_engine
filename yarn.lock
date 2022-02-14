@@ -52,6 +52,11 @@
   "resolved" "https://registry.npmjs.org/balanced-match/-/balanced-match-1.0.2.tgz"
   "version" "1.0.2"
 
+"bluebird@^3.5.1":
+  "integrity" "sha512-XpNj6GDQzdfW+r2Wnn7xiSAd7TM3jzkxGXBGTtWKuSXv1xUV+azxAm8jdWZN06QTQk+2N2XB9jRDkvbmQmcRtg=="
+  "resolved" "https://registry.npmjs.org/bluebird/-/bluebird-3.7.2.tgz"
+  "version" "3.7.2"
+
 "brace-expansion@^1.1.7":
   "integrity" "sha512-iCuPHDFgrHX7H2vEI/5xpz07zSHB00TpugqhmYtVmMO6518mCuRMoOYFldEBl0g187ufozdaHgWKcYFb61qGiA=="
   "resolved" "https://registry.npmjs.org/brace-expansion/-/brace-expansion-1.1.11.tgz"
@@ -98,6 +103,20 @@
   "integrity" "sha1-iNf/fsDfuG9xPch7u0LQRNPmxBs="
   "resolved" "https://registry.npmjs.org/crypt/-/crypt-0.0.2.tgz"
   "version" "0.0.2"
+
+"csv-parse@^5.0.4":
+  "integrity" "sha512-5AIdl8l6n3iYQYxan5djB5eKDa+vBnhfWZtRpJTcrETWfVLYN0WSj3L9RwvgYt+psoO77juUr8TG8qpfGZifVQ=="
+  "resolved" "https://registry.npmjs.org/csv-parse/-/csv-parse-5.0.4.tgz"
+  "version" "5.0.4"
+
+"csvtojson@^2.0.10":
+  "integrity" "sha512-lUWFxGKyhraKCW8Qghz6Z0f2l/PqB1W3AO0HKJzGIQ5JRSlR651ekJDiGJbBT4sRNNv5ddnSGVEnsxP9XRCVpQ=="
+  "resolved" "https://registry.npmjs.org/csvtojson/-/csvtojson-2.0.10.tgz"
+  "version" "2.0.10"
+  dependencies:
+    "bluebird" "^3.5.1"
+    "lodash" "^4.17.3"
+    "strip-bom" "^2.0.0"
 
 "debug@4":
   "integrity" "sha512-mOp8wKcvj7XxC78zLgw/ZA+6TSgkoE2C/ienthhRD298T7UNwAg9diBpLRxC0mOezLl4B0xV7M0cCO6P/O0Xhw=="
@@ -197,6 +216,16 @@
   "integrity" "sha1-o7MKXE8ZkYMWeqq5O+764937ZU8="
   "resolved" "https://registry.npmjs.org/is-fullwidth-code-point/-/is-fullwidth-code-point-2.0.0.tgz"
   "version" "2.0.0"
+
+"is-utf8@^0.2.0":
+  "integrity" "sha1-Sw2hRCEE0bM2NA6AeX6GXPOffXI="
+  "resolved" "https://registry.npmjs.org/is-utf8/-/is-utf8-0.2.1.tgz"
+  "version" "0.2.1"
+
+"lodash@^4.17.3":
+  "integrity" "sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg=="
+  "resolved" "https://registry.npmjs.org/lodash/-/lodash-4.17.21.tgz"
+  "version" "4.17.21"
 
 "lru-cache@^6.0.0":
   "integrity" "sha512-Jo6dJ04CmSjuznwJSS3pUeWmd/H0ffTlkXXgwZi+eq1UCmqQwCh+eLsYOYCwY991i2Fah4h1BEMCx4qThGbsiA=="
@@ -381,6 +410,13 @@
   "version" "4.0.0"
   dependencies:
     "ansi-regex" "^3.0.0"
+
+"strip-bom@^2.0.0":
+  "integrity" "sha1-YhmoVhZSBJHzV4i9vxRHqZx+aw4="
+  "resolved" "https://registry.npmjs.org/strip-bom/-/strip-bom-2.0.0.tgz"
+  "version" "2.0.0"
+  dependencies:
+    "is-utf8" "^0.2.0"
 
 "tar@^6.1.11":
   "integrity" "sha512-an/KZQzQUkZCkuoAA64hM92X0Urb6VpRhAFllDzz44U2mcD5scmT3zBc4VgVpkugF580+DQn8eAFSyoQt0tznA=="

@@ -5,8 +5,9 @@ const { NETWORK } = require(`${basePath}/constants/network.js`);
 const network = NETWORK.eth;
 
 // General metadata for Ethereum
-const namePrefix = 'Your Collection';
-const description = 'Remember to replace this description';
+const namePrefix = 'Council of Kingz - Lordship Proclomations';
+const description =
+  'Council of Kingz is the most innovative real estate acquisition project in the NFT and metaverse space.';
 const baseUri = 'ipfs://NewUriToReplace';
 
 const solanaMetadata = {
@@ -24,17 +25,115 @@ const solanaMetadata = {
 // If you have selected Solana then the collection starts from 0 automatically
 const layerConfigurations = [
   {
-    growEditionSizeTo: 5,
+    growEditionSizeTo: 469,
+
     layersOrder: [
       { name: 'Background' },
-      { name: 'Eyeball' },
-      { name: 'Eye color' },
-      { name: 'Iris' },
-      { name: 'Shine' },
-      { name: 'Bottom lid' },
-      { name: 'Top lid' },
+      // { name: 'Thrones' },
+      // { name: 'Body' },
+      // { name: 'Skin' },
+      // {
+      //   name: 'Short Hair',
+      //   options: {
+      //     displayName: 'Hair',
+      //   },
+      // },
+      // { name: 'Armor' },
+      // // { name: 'Eyewear' },
+      // {
+      //   name: 'Special Crowns',
+      //   options: {
+      //     displayName: 'Crowns',
+      //   },
+      // },
+      // { name: 'Weapons' },
+      // { name: 'Arms' },
     ],
   },
+  // {
+  //   growEditionSizeTo: 2888,
+
+  //   layersOrder: [
+  //     { name: 'Background' },
+  //     { name: 'Thrones' },
+  //     { name: 'Body' },
+  //     { name: 'Skin' },
+  //     {
+  //       name: 'Short Hair',
+  //       options: {
+  //         displayName: 'Hair',
+  //       },
+  //     },
+  //     { name: 'Armor' },
+  //     { name: 'Eyewear' },
+  //     { name: 'Crowns' },
+  //     { name: 'Weapons' },
+  //     { name: 'Arms' },
+  //   ],
+  // },
+  // {
+  //   growEditionSizeTo: 6176,
+  //   layersOrder: [
+  //     { name: 'Background' },
+  //     { name: 'Thrones' },
+  //     { name: 'Body' },
+  //     { name: 'Skin' },
+  //     {
+  //       name: 'Long Hair',
+  //       options: {
+  //         displayName: 'Hair',
+  //       },
+  //     },
+  //     { name: 'Armor' },
+  //     { name: 'Eyewear' },
+  //     { name: 'Crowns' },
+  //     { name: 'Weapons' },
+  //     { name: 'Arms' },
+  //   ],
+  // },
+  // {
+  //   growEditionSizeTo: 7777,
+  //   layersOrder: [
+  //     { name: 'Background' },
+  //     { name: 'Thrones' },
+  //     { name: 'Body' },
+  //     {
+  //       name: 'Rare Skin',
+  //       options: {
+  //         displayName: 'Skin',
+  //       },
+  //     },
+  //     { name: 'Armor' },
+  //     { name: 'Eyewear' },
+  //     { name: 'Crowns' },
+  //     { name: 'Weapons' },
+  //     { name: 'Arms' },
+  //   ],
+  // },
+  // {
+  //   growEditionSizeTo: 1944,
+  //   layersOrder: [
+  //     { name: 'Background' },
+  //     { name: 'Thrones' },
+  //     { name: 'Body' },
+  //     {
+  //       name: 'Rare Skin',
+  //       options: {
+  //         displayName: 'Skin',
+  //       },
+  //     },
+  //     { name: 'Armor' },
+  //     { name: 'Eyewear' },
+  //     {
+  //       name: 'Special Crowns',
+  //       options: {
+  //         displayName: 'Crowns',
+  //       },
+  //     },
+  //     { name: 'Weapons' },
+  //     { name: 'Arms' },
+  //   ],
+  // },
 ];
 
 const shuffleLayerConfigurations = false;
@@ -42,8 +141,8 @@ const shuffleLayerConfigurations = false;
 const debugLogs = false;
 
 const format = {
-  width: 512,
-  height: 512,
+  width: 4000,
+  height: 4000,
   smoothing: false,
 };
 
@@ -55,9 +154,9 @@ const gif = {
 };
 
 const text = {
-  only: false,
+  only: true,
   color: '#ffffff',
-  size: 20,
+  size: 500,
   xGap: 40,
   yGap: 40,
   align: 'left',
@@ -92,7 +191,7 @@ const preview = {
 };
 
 const preview_gif = {
-  numberOfImages: 5,
+  numberOfImages: 20,
   order: 'ASC', // ASC, DESC, MIXED
   repeat: 0,
   quality: 100,
@@ -103,7 +202,15 @@ const preview_gif = {
 // config for regnerating art from metadata
 
 // layers to leave out of the regenerated art
-const dropLayers = ['Goo'];
+const dropLayers = [
+  'Planet',
+  'Powers',
+  // 'Body',
+  // 'Armor',
+  // 'Arms',
+  // 'Weapons',
+];
+
 // pixelate the regenerated art
 // uses pixelFormat
 const pixelate = false;
@@ -112,14 +219,14 @@ const showText = true;
 // settings to crop a section of the regenerated art
 const crop = {
   doCrop: false,
-  sx: 500,
+  sx: 1000,
   sy: 100,
-  sw: 1000,
-  sh: 1000,
+  sw: 2000,
+  sh: 2000,
   dx: 0,
   dy: 0,
-  dw: 512,
-  dh: 512,
+  dw: 16,
+  dh: 16,
 };
 
 module.exports = {

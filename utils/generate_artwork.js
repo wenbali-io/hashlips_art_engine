@@ -24,7 +24,8 @@ const regenImages = async () => {
     console.log('Please generate a collection first.');
     return;
   }
-  nfts.map(async (nft) => {
+  while (nfts.length > 0) {
+    const nft = nfts.shift();
     // get the edition for the filename
     const id = nft.edition;
     console.log('id', id);
@@ -45,12 +46,36 @@ const regenImages = async () => {
       renderObjectArray.forEach((renderObject, index) => {
         drawElement(renderObject);
       });
+
       if (pixelate) drawPixelate();
       if (showText) addText(`ID: ${id}`, text.xGap, text.yGap, text.size);
+      if (showText)
+        addText(
+          nft.collection,
+          text.xGap,
+          format.height - text.yGap - text.size - 1000,
+          150,
+          '#000000'
+        );
+      if (showText)
+        addText(
+          `jason@wenbali.io`,
+          text.xGap,
+          format.height - text.yGap - text.size - 190,
+          150
+        );
+      if (showText)
+        addText(
+          `Full Stack Web3 Development`,
+          text.xGap,
+          format.height - text.yGap - text.size,
+          150
+        );
       if (crop.doCrop) drawCrop();
       saveImage(id);
+      resetCanvas();
     });
-  });
+  }
 };
 
 const isVisibleLayer = (_layerName) => {
@@ -62,16 +87,19 @@ const drawElement = (_loadedLayer) => {
 };
 
 const loadLayerImg = async (_layer) => {
-  return new Promise(async (resolve) => {
-    const image = await loadImage(`${_layer}`);
-    resolve(image);
-  });
+  try {
+    return new Promise(async (resolve) => {
+      const image = await loadImage(`${_layer}`);
+      resolve(image);
+    });
+  } catch (error) {
+    console.error('Error loading image:', error);
+  }
 };
 
-const addText = (_sig, x, y, size) => {
-  console.log('Adding Text');
+const addText = (_sig, x, y, size, color) => {
   ctx.globalCompositeOperation = 'source-over';
-  ctx.fillStyle = text.color;
+  ctx.fillStyle = color || text.color;
   ctx.font = `${text.weight} ${size}pt ${text.family}`;
   ctx.textBaseline = text.baseline;
   ctx.textAlign = text.align;
@@ -79,8 +107,9 @@ const addText = (_sig, x, y, size) => {
 };
 
 const drawCrop = () => {
-  console.log('Cropping');
-  ctx.drawImage(
+  const tempCanvas = createCanvas(crop.dw, crop.dh);
+  const tempCtx = tempCanvas.getContext('2d');
+  tempCtx.drawImage(
     canvas,
     crop.sx,
     crop.sy,
@@ -91,12 +120,13 @@ const drawCrop = () => {
     crop.dw,
     crop.dh
   );
-  // canvas.width = crop.dw;
-  // canvas.height = crop.dh;
+  canvas.width = crop.dw;
+  canvas.height = crop.dh;
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  ctx.drawImage(tempCanvas, 0, 0);
 };
 
 const drawPixelate = () => {
-  console.log('Pixelating');
   let size = pixelFormat.ratio;
   let w = canvas.width * size;
   let h = canvas.height * size;
@@ -119,6 +149,11 @@ const saveImage = (_editionCount) => {
     `${regenDir}/images/${_editionCount}.png`,
     canvas.toBuffer('image/png')
   );
+};
+
+const resetCanvas = () => {
+  canvas.width = format.width;
+  canvas.height = format.height;
 };
 
 const buildRegen = () => {
